@@ -1,5 +1,12 @@
 # Spring framework
 
+## 설정 정보
+- Spring 4.2.5
+- java 1.8
+- servlet 3.1
+- H2 Database (v 1.4.199)
+- dbcp 2.1.1
+
 ## 기본 세팅
 1. legacy project 생성
 
@@ -27,19 +34,20 @@
 5. DB연결
 - JDBC, dbcp 라이브러리 추가
 ```xml
-	<!-- dbcp -->
-	<dependency>
-	    <groupId>org.apache.commons</groupId>
-	    <artifactId>commons-dbcp2</artifactId>
-	    <version>2.1.1</version>
-	</dependency>
-	<!-- H2 db -->
-	<dependency>
-	    <groupId>com.h2database</groupId>
-	    <artifactId>h2</artifactId>
-	    <version>1.4.199</version>
-	   <scope>test</scope>
-	</dependency>
+<!-- dbcp -->
+<dependency>
+	<groupId>org.apache.commons</groupId>
+	<artifactId>commons-dbcp2</artifactId>
+	<version>2.1.1</version>
+</dependency>
+
+<!-- H2 db -->
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+	<version>1.4.199</version>
+	<scope>test</scope>
+</dependency>
 ```
 - serlvet-context에 DB설정
 ```xml
