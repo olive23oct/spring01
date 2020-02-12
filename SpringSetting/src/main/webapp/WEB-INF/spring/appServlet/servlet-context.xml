@@ -16,13 +16,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="driverClassName" value="${h2driver}"/>
-        <property name="url" value="${h2url}"/>
-        <property name="username" value="${h2username}"/>
-        <property name="password" value="${h2password}"/>
-    </bean>
-    <context:property-placeholder location="/WEB-INF/spring/appServlet/db.properties"/>
+
     
     <!-- 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

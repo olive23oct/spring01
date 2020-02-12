@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${h2driver}"/>
+        <property name="url" value="${h2url}"/>
+        <property name="username" value="${h2username}"/>
+        <property name="password" value="${h2password}"/>
+    </bean>
+    <context:property-placeholder location="src/main/resources/db.properties"/>
+
+		<!-- =============================== -->
+	<!-- 스프링-마이바티스 연동 설정 -->
+	<!-- 방법1 : SqlSessionDaoSupport 상속구현시 
+		 SqlSessionFactory 타입객체 사용-->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+				value="classpath:mybatis-config.xml" />
+	</bean>
+	
+	<!-- 방법2 : SqlSessionTemplate 사용 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+</beans>
