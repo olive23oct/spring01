@@ -95,4 +95,21 @@
 </filter-mapping>
 ```
 
+7. mybatis 연동
+```xml
+<!-- Mybatis -->
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis</artifactId>
+	<version>3.4.6</version>
+</dependency>
+	
+<!-- Mybatis-spring -->
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis-spring</artifactId>
+	<version>1.3.2</version>
+</dependency>
+```
+- SqlSessionFactory 객체 : DB 서버와 mybatis 연결
 
